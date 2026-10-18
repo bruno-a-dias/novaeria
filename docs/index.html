@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novaéria: O Peso das Cinzas</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<meta name="theme-color" content="#0d0b10">
+<style>
+  html, body { margin: 0; height: 100%; background: #0d0b10; color: #e8dcc0; font-family: Georgia, serif; }
+  /* proporção 4:3 (a de uma TV de Super Nintendo) preservada em qualquer janela */
+  #game { width: min(100vw, 133.333vh); height: min(75vw, 100vh); margin: 0 auto; }
+  canvas { image-rendering: pixelated; }
+</style>
+</head>
+<body>
+<div id="game"></div>
+<script>
+  // EmulatorJS (GPLv3) com o núcleo snes9x: o jogo abre direto, sem passos extras
+  EJS_player = '#game';
+  EJS_core = 'snes';
+  EJS_gameName = 'Novaeria';
+  EJS_gameUrl = 'novaeria.sfc';
+  EJS_color = '#b8862b';
+  EJS_startOnLoaded = true;
+  EJS_language = 'pt-BR';
+  EJS_pathtodata = 'emulatorjs/';
+  // Qualidade gráfica: filtro de pixel-art por padrão (suaviza as bordas sem borrar). Troque no menu Configurações > Shaders
+  // ou abra com ?filtro=crt-easymode | 4xScaleHQ | 2xScaleHQ | sabr | crt-lottes | disabled (pixel puro)
+  var f = new URLSearchParams(location.search).get('filtro');
+  EJS_defaultOptions = { shader: f || 'sabr' };
+</script>
+<script src="emulatorjs/loader.js"></script>
+<script>if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function(){});</script>
+</body>
+</html>

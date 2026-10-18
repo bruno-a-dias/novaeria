@@ -1,0 +1,14 @@
+{
+  "name": "Novaéria: O Peso das Cinzas",
+  "short_name": "Novaéria",
+  "description": "Beat 'em up para Super Nintendo baseado no livro de Bruno A. Dias",
+  "start_url": "./index.html",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0d0b10",
+  "theme_color": "#0d0b10",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
+}

@@ -1,0 +1,30 @@
+/* Controles de toque transparentes (celular, tablet e APK) */
+#pad { position: fixed; inset: 0; z-index: 50; pointer-events: none; display: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; touch-action: none; --op: .5; --u: min(22vmin, 26vw); }
+body.touch #pad { display: block; }
+body.pad-off #pad .k, body.pad-off #pad .dp { display: none; }
+#pad .k, #pad .dp, #pad .pill { position: absolute; pointer-events: auto; touch-action: none; opacity: var(--op); transition: opacity .08s; }
+#pad .dp { left: max(2vmin, env(safe-area-inset-left)); bottom: max(3vmin, env(safe-area-inset-bottom)); width: calc(var(--u) * 1.25); height: calc(var(--u) * 1.25); border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.10) 0 58%, rgba(255,255,255,.22) 60% 100%); border: 2px solid rgba(255,255,255,.55); }
+#pad .dp i { position: absolute; left: 50%; top: 50%; width: 34%; height: 34%; margin: -17% 0 0 -17%; border-radius: 50%; background: rgba(255,255,255,.55); transform: translate(var(--dx, 0), var(--dy, 0)); }
+#pad .dp b { position: absolute; color: #fff; font: 700 3.2vmin/1 sans-serif; opacity: .8; }
+#pad .dp b:nth-of-type(1) { left: 50%; top: 6%; transform: translateX(-50%); }
+#pad .dp b:nth-of-type(2) { left: 50%; bottom: 6%; transform: translateX(-50%); }
+#pad .dp b:nth-of-type(3) { top: 50%; left: 8%; transform: translateY(-50%); }
+#pad .dp b:nth-of-type(4) { top: 50%; right: 8%; transform: translateY(-50%); }
+#pad .k { width: calc(var(--u) * .56); height: calc(var(--u) * .56); border-radius: 50%; border: 2px solid rgba(255,255,255,.6); background: rgba(255,255,255,.16); color: #fff; font: 700 calc(var(--u) * .24)/calc(var(--u) * .52) sans-serif; text-align: center; }
+#pad .k.on, #pad .pill.on { background: rgba(255,255,255,.5); opacity: calc(var(--op) + .3); }
+/* losango dos botões: X em cima, A à direita, B embaixo, Y à esquerda (layout do Super Nintendo) */
+#pad .fx { right: calc(max(2vmin, env(safe-area-inset-right)) + var(--u) * .62); bottom: calc(max(3vmin, env(safe-area-inset-bottom)) + var(--u) * 1.0); }
+#pad .fa { right: max(2vmin, env(safe-area-inset-right)); bottom: calc(max(3vmin, env(safe-area-inset-bottom)) + var(--u) * .5); }
+#pad .fb { right: calc(max(2vmin, env(safe-area-inset-right)) + var(--u) * .62); bottom: max(3vmin, env(safe-area-inset-bottom)); }
+#pad .fy { right: calc(max(2vmin, env(safe-area-inset-right)) + var(--u) * 1.24); bottom: calc(max(3vmin, env(safe-area-inset-bottom)) + var(--u) * .5); }
+#pad .pill { height: calc(var(--u) * .3); min-width: calc(var(--u) * .9); padding: 0 2vmin; border-radius: 999px; border: 2px solid rgba(255,255,255,.6); background: rgba(255,255,255,.16); color: #fff; font: 700 calc(var(--u) * .15)/calc(var(--u) * .27) sans-serif; text-align: center; bottom: max(1.5vmin, env(safe-area-inset-bottom)); letter-spacing: .08em; }
+#pad .st { left: 50%; margin-left: 1vmin; }
+#pad .sl { right: 50%; margin-right: 1vmin; }
+#pad .lg { top: max(1.5vmin, env(safe-area-inset-top)); width: 9vmin; min-width: 0; height: 9vmin; padding: 0; line-height: 8vmin; font-size: 4.4vmin; border-radius: 50%; opacity: .45; bottom: auto; }
+#pad .lg.tog { right: calc(max(2vmin, env(safe-area-inset-right)) + 11vmin); }
+#pad .lg.opa { right: calc(max(2vmin, env(safe-area-inset-right)) + 22vmin); }
+#pad .lg.full { right: calc(max(2vmin, env(safe-area-inset-right)) + 33vmin); }
+/* paisagem: START e SELECT nas laterais, fora da imagem do jogo */
+@media (orientation: landscape) { #pad .sl { right: auto; left: max(2vmin, env(safe-area-inset-left)); margin: 0; bottom: calc(var(--u) * 1.25 + 6vmin); } #pad .st { left: auto; right: max(2vmin, env(safe-area-inset-right)); margin: 0; bottom: calc(var(--u) * 1.55 + 6vmin); } }
+/* retrato: o jogo fica no topo (4:3) e os controles ocupam a área de baixo */
+@media (orientation: portrait) { #pad { --u: 30vw; } #pad .pill { bottom: calc(env(safe-area-inset-bottom) + var(--u) * 1.75); } }

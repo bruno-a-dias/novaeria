@@ -2,7 +2,10 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="touch.css">
 <title>Novaéria: O Peso das Cinzas</title>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
@@ -12,6 +15,8 @@
   /* proporção 4:3 (a de uma TV de Super Nintendo) preservada em qualquer janela */
   #game { width: min(100vw, 133.333vh); height: min(75vw, 100vh); margin: 0 auto; }
   canvas { image-rendering: pixelated; }
+  body { overscroll-behavior: none; -webkit-tap-highlight-color: transparent; }
+  /* retrato: o jogo fica no topo e os controles na área de baixo */
 </style>
 </head>
 <body>
@@ -29,9 +34,11 @@
   // Qualidade gráfica: filtro de pixel-art por padrão (suaviza as bordas sem borrar). Troque no menu Configurações > Shaders
   // ou abra com ?filtro=crt-easymode | 4xScaleHQ | 2xScaleHQ | sabr | crt-lottes | disabled (pixel puro)
   var f = new URLSearchParams(location.search).get('filtro');
-  EJS_defaultOptions = { shader: f || 'sabr' };
+  // os controles de toque do jogo (touch.js) substituem o gamepad virtual padrão do EmulatorJS
+  EJS_defaultOptions = { shader: f || 'sabr', 'virtual-gamepad': 'disabled' };
 </script>
 <script src="emulatorjs/loader.js"></script>
+<script src="touch.js"></script>
 <script>if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(function(){});</script>
 </body>
 </html>

@@ -12,6 +12,7 @@
 - **1 ou 2 jogadores** no mesmo console, com retorno do parceiro eliminado.
 - **10 fases** em quatro arcos, de *Ruínas de Yuria* ao *Trono de Obsidiana*, cada uma com chefe próprio e a batalha final contra Vorn em três formas.
 - **9 cenas ilustradas** entre as fases e um mapa da campanha com narração.
+- **Controles de toque transparentes** no celular, tablet e APK.
 - **Combate fluido:** combos que cancelam ao acertar, buffer de entrada, hitstop e tremor de tela.
 - **Menu OPÇÕES** com dificuldade, vidas, redução de flashes e **CHEATS** (pulo duplo, vida infinita, magia infinita, hit kill), salvos na SRAM.
 - **Trilha original** com o Terrific Audio Driver.
